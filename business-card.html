@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wavelength — Business Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:      #14171C;   /* near-black warm charcoal */
+    --paper:    #F5F2EC;   /* warm ivory */
+    --brass:    #C9A05C;   /* aged brass accent */
+    --muted:    #8B8478;   /* warm grey for secondary text */
+    --line:     rgba(20,23,28,0.12);
+    --line-on-ink: rgba(245,242,236,0.16);
+
+    --display: 'Space Grotesk', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:#DEDAD1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:48px;
+    padding:64px 24px;
+    font-family:var(--mono);
+  }
+
+  .stage-label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:-24px;
+  }
+
+  .row{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  /* Standard US business card ratio 3.5 x 2 in, rendered at 150px/in for screen legibility */
+  .card{
+    width:525px;
+    height:300px;
+    border-radius:6px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 20px 40px -12px rgba(20,23,28,0.35), 0 2px 6px rgba(20,23,28,0.15);
+  }
+
+  /* ---------- FRONT ---------- */
+  .front{
+    background:var(--ink);
+    color:var(--paper);
+    padding:36px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+
+  .front .mark-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .rec-dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--brass);
+    flex:none;
+  }
+
+  .logotype{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:30px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+
+  .tagline{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:6px;
+    padding-left:18px;
+  }
+
+  .waveform{
+    position:absolute;
+    right:-10px;
+    bottom:-6px;
+    width:340px;
+    height:150px;
+    opacity:0.95;
+  }
+
+  .front-foot{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+
+  /* ---------- BACK ---------- */
+  .back{
+    background:var(--paper);
+    color:var(--ink);
+    padding:36px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:0;
+  }
+
+  .spec-row{
+    display:grid;
+    grid-template-columns:78px 1fr;
+    align-items:baseline;
+    padding:9px 0;
+    border-bottom:1px solid var(--line);
+    gap:16px;
+  }
+  .spec-row:first-child{ border-top:1px solid var(--line); }
+
+  .spec-label{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .spec-value{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:16px;
+    letter-spacing:0.01em;
+  }
+
+  .spec-value.name{
+    font-weight:700;
+    font-size:19px;
+  }
+
+  .back-brass{
+    position:absolute;
+    left:0; top:0;
+    width:5px; height:100%;
+    background:var(--brass);
+  }
+</style>
+</head>
+<body>
+
+  <div class="stage-label">Front</div>
+  <div class="row">
+    <div class="card front">
+      <div>
+        <div class="mark-row">
+          <span class="rec-dot"></span>
+          <span class="logotype">Wavelength</span>
+        </div>
+        <div class="tagline">Audio Mastering Studio</div>
+      </div>
+
+      <svg class="waveform" viewBox="0 0 340 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="
+          0,75 10,75 18,60 26,90 34,40 42,105 50,55 58,95
+          66,30 74,120 82,50 90,100 98,20 106,130 114,45 122,110
+          130,65 138,85 146,15 154,135 162,58 170,92 178,35 186,115
+          194,70 202,80 210,25 218,125 226,52 234,98 242,40 250,105
+          258,68 266,82 274,55 282,95 290,72 298,78 306,60 314,90
+          322,75 330,75 340,75" 
+          stroke="#C9A05C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+      </svg>
+
+      <div class="front-foot">
+        <span>Mastered in 24-bit / 96kHz</span>
+        <span>Est. 2016</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-label">Back</div>
+  <div class="row">
+    <div class="card back">
+      <div class="back-brass"></div>
+
+      <div class="spec-row">
+        <div class="spec-label">Name</div>
+        <div class="spec-value name">Henish Himesh Chakerdhar</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Role</div>
+        <div class="spec-value">Mastering Engineer</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Phone</div>
+        <div class="spec-value">+91 99107 47713</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Email</div>
+        <div class="spec-value">henish1305@gmail.com</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Web</div>
+        <div class="spec-value">wavelength.studio</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
